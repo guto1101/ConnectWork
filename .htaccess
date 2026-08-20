@@ -1,0 +1,17 @@
+# ConnectWork — proteção do diretório público
+Options -Indexes
+
+# Arquivos que nunca devem ser baixados diretamente.
+<FilesMatch "\.(sql|md|log|ini|env|bak|old|dist)$">
+    Require all denied
+</FilesMatch>
+
+# Suítes e scripts administrativos de instalação não ficam públicos.
+<FilesMatch "^(testes|instalar)\.php$">
+    Require all denied
+</FilesMatch>
+
+# Não permita execução de scripts dentro de uploads.
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
