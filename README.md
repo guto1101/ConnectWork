@@ -1,4 +1,3 @@
-# ConnectWork
 <?php
 /**
  * ConnectWork — Acesso ao sistema
